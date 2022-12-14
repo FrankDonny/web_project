@@ -2,7 +2,8 @@
 """date base module"""
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from os import getenv
+# from os import getenv
+# import json
 
 username = "MYSELF"
 password = "MY_PASS"
@@ -13,12 +14,11 @@ dataB = "MY_DATABASE"
 class DBStorage:
     __engine = None
     __session = None
+    # __objects = {}
 
     def __init__(self):
         """initializing the class by creating the session engine"""
-        self.__engine = create_engine(f'mysql+mysqldb://{getenv(username)}:'
-                                      f'{getenv(password)}@{getenv(host)}:'
-                                      f'3306/{getenv(dataB)}',
+        self.__engine = create_engine('mysql+mysqldb://web_app_user:pass@localhost:3306/web_app_DB',
                                       pool_pre_ping=True)
 
     def all(self, cls=None):
@@ -46,11 +46,20 @@ class DBStorage:
 
     def new(self, obj):
         """adds a new instance of a class to the current session"""
+        # dict_ = {f"{obj.__class__.__name__}" + '.' + f"{obj.id}": obj}
+        # self.__objects.update(dict_)
         self.__session.add(obj)
 
     def save(self):
         """saves the current session"""
         self.__session.commit()
+        #backup the database with a file storage
+        # with open("new_json.json", 'w', encoding="utf-8") as file:
+        #     newDict = {}
+        #     newDict.update(self.__objects)
+        #     for key, value in newDict.items():
+        #         newDict[key] = value.to_dict()
+        #     json.dump(newDict, file, indent=4)
 
     def reload(self):
         """to create all tables"""

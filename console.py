@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """command line module"""
 from cmd import Cmd
+from datetime import datetime
+
+from models import storage
+from models.messages import Message
+from models.reviews import Review
 from models.rooms import Room
 from models.users import User
-from models.reviews import Review
-from models.messages import Message
-from models import storage
 
 classes = ["User", "Room", "Review", "Message"]
 
@@ -67,16 +69,14 @@ class WebApp(Cmd):
             print("** provide an instance id **")
             return
         value = [val.split('.')[1] for val in storage.all(line_split[0])]
-        if line_split[1] not in value:
-            print("** incorrect instance id **")
-            return
         obj = storage.get(line_split[0], line_split[1])
         for ob in line_split[2:]:
             if '=' not in ob:
                 continue
             ob_split = ob.split('=')
             setattr(obj, ob_split[0], ob_split[1].strip('"').replace('_', ' '))
-        obj.save()
+        setattr(obj, "updated_at", datetime.now())
+        storage.save()
         print(obj.id)
 
     def help_update(self):

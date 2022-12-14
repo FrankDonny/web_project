@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='side.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='content.css') }}">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    {% block nav_bar %}
+    <header>
+        <div id="logo-box">
+            <a href="#"><img id="logo" src="{{ url_for('static', filename='images/logo') }}" alt="logo"></a>
+        </div>
+        <div id="nav">
+            <ul class="nav-list">
+                <li><a href="/rooms"><strong>Home</strong></a></li>
+                <li><a href="/about"><strong>About</strong></a></li>
+                <li><a href=""><strong>Contact</strong></a></li>
+                <li><a href=""><strong>Logout</strong></a></li>
+            </ul>
+        </div>
+    </header>
+    {% endblock nav_bar %}
+	{% block content %}{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block title %}rooms{% endblock title %}
+{% block content %}
+	<section id="side_bar">
+		<div id="new_rooms">
+			<ul>
+				{% for num in range(3) %}
+					<li>{{ rooms[num].name }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+	<section id="content">
+		{% for item in roomDetails %}
+			<div id="item">
+				<div>{{ item['userName'] }} | {{ item['roomName'] }}</div>
+				<div>{{ item['roomDescription'] }}</div>
+			</div>
+		{% endfor %}
+	</section>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block title %}Signup{% endblock title %}
+{% block content %}
+	<section id="container">
+		<div>
+			<form action="/" method="post">
+				{{ forms. }}
+			</form>
+		</div>
+	</section>
+{% endblock content %}

@@ -24,14 +24,13 @@ class BaseModel:
                 if key == 'created_at' or key == 'updated_at':
                     value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                 setattr(self, key, value)
-        else:
-            self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def save(self):
         """saves the object"""
-        self.updated_at = datetime.now()
+        from models import storage
         storage.new(self)
         storage.save()
 
@@ -42,7 +41,9 @@ class BaseModel:
         newDict['updated_at'] = self.created_at.isoformat()
         newDict.update({"__class__": self.__class__.__name__})
         if '_sa_instance_state' in newDict.keys():
-            del newDict['_sa_instance_state']
+            del newDict["_sa_instance_state"]
+        if "password" in newDict.keys():
+            del newDict["password"]
         return newDict
 
     def delete(self):
