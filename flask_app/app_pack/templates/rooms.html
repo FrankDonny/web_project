@@ -1,21 +1,74 @@
 {% extends 'main.html' %}
-{% block title %}rooms{% endblock title %}
+{% block title %}Get A Room | Rooms - {{ userName }}{% endblock title %}
 {% block content %}
-	<section id="side_bar">
-		<div id="new_rooms">
-			<ul>
-				{% for num in range(3) %}
-					<li>{{ rooms[num].name }}</li>
-				{% endfor %}
-			</ul>
-		</div>
-	</section>
-	<section id="content">
-		{% for item in roomDetails %}
-			<div id="item">
-				<div>{{ item['userName'] }} | {{ item['roomName'] }}</div>
-				<div>{{ item['roomDescription'] }}</div>
+	<section id="room_body">
+		<div id="side_bar">
+			<div id="create_room_div">
+				<div id="create_room_form">
+					<p>Create Room</p>
+					<button id="create">
+						<img id="click" src="{{ url_for('static', filename='images/click.png') }}" alt="click">
+					</button>
+				</div>
+				<div id="create_room">
+					<form action="" method="POST" class="form-class">
+						{{ form.hidden_tag() }}
+						{{ form.name.label() }}
+						{% if form.name.errors %}
+							{{ form.name(class="form_look-danger", placeholder="Enter Room Name") }}
+							{% for error in form.name.errors %}
+								<div class="error-div">{{ error }}</div>
+							{% endfor %}
+						{% else %}
+							{{ form.name(class="form_look", placeholder="Enter Room Name") }}
+						{% endif %}
+						<br>
+						{{ form.description.label() }}
+						{% if form.description.errors %}
+							{{ form.description(class="form_look-danger", placeholder="Room Description") }}
+							{% for error in form.description.errors %}
+								<div class="error-div">{{ error }}</div>
+							{% endfor %}
+						{% else %}
+							{{ form.description(class="form_look", placeholder="Room Description") }}
+						{% endif %}
+						<br>
+						{{ form.submit(class="submit-btn", value="create") }}
+					</form>
+				</div>
 			</div>
-		{% endfor %}
+			<div id="new_rooms">
+				<p>Newly Created Rooms</p>
+				<ul>
+					{% for room in rooms %}
+						<li>&#8212;  #{{ room.name }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div id="room_section">
+			{% for item in roomDetails %}
+				<div id="item">
+					<div id="group">
+						<div id="userImage">
+							{% set imageName = 'images/' + item['profileImg'] %}
+							<img src="{{ url_for('static', filename=imageName) }}" alt="" id="usrImg">
+							<div id="userName">&#64;{{ item['userName'] }} </div>
+						</div>
+						<div id="roomName-date">
+							<div id="roomName">&ldquo;{{ item['roomName'] }}&rdquo;</div>
+							<div id="created_at"><small>{{ item['created_at'] }}</small></div>
+						</div>
+					</div>
+					<hr>
+					<div id="itemBottom">
+						<div id="roomDescription">{{ item['roomDescription'] }}</div>
+						<div id="btn-box">
+							<a href="{{ url_for('chatroom') }}"><button id="join-btn">Join</button></a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
 	</section>
 {% endblock content %}

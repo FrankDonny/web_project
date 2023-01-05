@@ -3,7 +3,6 @@
 from models.basemodel import BaseModel, Base
 from sqlalchemy import String, ForeignKey, Column
 from sqlalchemy.orm import relationship
-from os import getenv
 
 
 class Room(BaseModel, Base):

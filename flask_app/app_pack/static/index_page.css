@@ -1,0 +1,40 @@
+/* @keyframes change-gradient {
+  0% {
+    background: linear-gradient(to right, #ff0000, #ffff00, #00ff00);
+  }
+  50% {
+    background: linear-gradient(to right, #00ff00, #ffff00, #0000ff);
+  }
+  100% {
+    background: linear-gradient(to right, #0000ff, #ffff00, #ff0000);
+  }
+}
+
+#landing-page {
+    min-height: 1000px;
+
+    margin-top: 60px;
+    background: linear-gradient(to right, #ff0000, #ffff00, #00ff00);
+    transition: background 5s ease;
+    animation: change-gradient 10s linear infinite;
+} */
+
+/* #landing-page {
+  background: conic-gradient(#ff0000 0deg, #ffff00 50deg, #00ff00 100deg);
+  transition: background 5s ease;
+  animation: change-gradient 10s linear infinite;
+  min-height: 1000px;
+  margin-top: 60px;
+}
+
+@keyframes change-gradient {
+  0% {
+    background: conic-gradient(#ff0000 0deg, #ffff00 50deg, #00ff00 100deg);
+  }
+  50% {
+    background: conic-gradient(#00ff00 0deg, #ffff00 50deg, #0000ff 100deg);
+  }
+  100% {
+    background: conic-gradient(#0000ff 0deg, #ffff00 50deg, #ff0000 100deg);
+  }
+} */

@@ -1,15 +1,10 @@
-class Hey:
-    name = 'Frank'
+# import hashlib
 
-    def __inti__(self, name):
-        self.name = name
+# passwd = "frankdony"
+# hashed_passwd = "360b8b4e655b73533768dae611816eb6"
+# hashed = hashlib.md5(passwd.encode('utf-8')).hexdigest()
+# print(hashed == hashed_passwd)
 
-    def __str__(self):
-        return f"{[self.__class__.__name__]}"
-
-
-model = Hey()
-print(model.name)
-print()
-model.name = 'Arkoh'
-print(model.name)
+from models import storage
+users = [user.id[:8] for user in storage.all("User").values()]
+print(users)

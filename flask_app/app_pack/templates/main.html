@@ -8,20 +8,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='side.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='content.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='rooms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_page.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/scripts.js') }}" defer></script>
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
     {% block nav_bar %}
     <header>
         <div id="logo-box">
-            <a href="#"><img id="logo" src="{{ url_for('static', filename='images/logo') }}" alt="logo"></a>
+            <a href="/rooms" class="class="d-inline-block align-top rounded-circle""><img id="logo" src="{{ url_for('static', filename='images/logo') }}" alt="logo"></a>
         </div>
         <div id="nav">
-            <ul class="nav-list">
-                <li><a href="/rooms"><strong>Home</strong></a></li>
-                <li><a href="/about"><strong>About</strong></a></li>
-                <li><a href=""><strong>Contact</strong></a></li>
-                <li><a href=""><strong>Logout</strong></a></li>
+            <ul style="list-style-type: none;" class="nav-list">
+                <li><a href="{{ url_for('rooms') }}"><strong>Rooms</strong></a></li>
+                <li><a href="{{ url_for('about') }}"><strong>About</strong></a></li>
+                <li><a href="{{ url_for('logout') }}"><strong>Logout</strong></a></li>
+                <li><a href="{{ url_for('profile') }}"><strong>Profile</strong></a></li>
             </ul>
         </div>
     </header>

@@ -1,0 +1,41 @@
+{% extends "main.html" %}
+{% block title %}Login{% endblock title %}
+{% block nav_bar %}
+    <header>
+        <div id="logo-box">
+            <a href="{{ url_for('index') }}"><img id="logo" src="{{ url_for('static', filename='images/logo') }}" alt="logo"></a>
+        </div>
+		<div id="nav">
+            <ul class="nav-list">
+                <li>Don't have an account&quest;</li>
+                <li><a href="{{ url_for('signup') }}"><strong>Create One</strong></a></li>
+            </ul>
+        </div>
+    </header>
+{% endblock nav_bar %}
+{% block content %}
+	<section id="container">
+		<div class="form_div">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						<div id="flash_message">{{ message }}</div>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			<form method="POST" class="form-class">
+				{{ form.hidden_tag() }}
+				{{ form.email.label() }}
+				{{ form.email(class="form_look", placeholder="Enter Email") }}
+				 <br>
+				{{ form.password.label() }}
+				{{ form.password(class="form_look", placeholder="Enter Password") }}
+				<br>
+				{{ form.remember }}
+				{{ form.remember.label }}
+				<br>
+				{{ form.submit(class="submit-btn", value="login") }}
+			</form>
+		</div>
+	</section>
+{% endblock content %}

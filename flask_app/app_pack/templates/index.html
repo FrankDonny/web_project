@@ -1,1 +1,15 @@
 {% extends "main.html" %}
+{% block title %}Get A Room{% endblock title %}
+{% block nav_bar %}
+    <header id="index">
+        <div id="logo-box">
+            <a href="/"><img id="logo" src="{{ url_for('static', filename='images/logo') }}" alt="logo"></a>
+        </div>
+        <div id="nav">
+            <ul class="nav-list">
+                <li><a href="{{ url_for('signup') }}"><strong>SignUp</strong></a></li>
+                <li><a href="{{ url_for('login') }}"><strong>Login</strong></a></li>
+            </ul>
+        </div>
+    </header>
+{% endblock nav_bar %}

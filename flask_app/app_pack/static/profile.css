@@ -1,0 +1,100 @@
+#profile_section {
+    margin-top: 60px;
+}
+
+#profile-user-name {
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+body {
+    min-height: 80vh;
+}
+
+#profile_container {
+    margin: 0 auto 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+    overflow: hidden;
+    align-items: center;
+}
+
+#others {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 10px;
+}
+
+#image-box {
+    /* background-color: aquamarine; */
+    width: 168.8px;
+    height: 168.8px;
+    border: solid 1px wheat;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    line-height: 168.8px;
+}
+
+#pro-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+#profile_name,
+#profile_email,
+#profile_phoneNum {
+    height: auto;
+    border: white solid 1px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 11px;
+    background-color: whitesmoke;
+    color: black;
+    box-shadow: inset 0 0 2px #000000;
+    font-size: large;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#profile_form {
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    height: 100px;
+}
+
+#upload-pic {
+    border: solid whitesmoke 1px;
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto auto auto;
+    text-align: left;
+    padding-top: 10px;
+}
+
+#upload-pic p {
+    font-size: 15px;
+    text-align: left;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+.profile-form-class {
+    border: solid 1px rgb(130, 130, 130);
+    border-radius: 10px;
+    background-color: #001b44;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.profile-form-class input {
+    margin: auto;
+}

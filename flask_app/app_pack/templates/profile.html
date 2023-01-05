@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% block title %}Profile | {{ current_user.name }}{% endblock title %}
+{% block content %}
+<section id="profile_section">
+    <center><h1 id="profile-user-name">MY PROFILE &#40;{{ current_user.name }}&#41;</h1></center>
+    <div id="profile_form">
+        <form method="POST" action="/profile" class="profile-form-class" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div id="profile_container">
+                <div id="image_container">
+                    <div id="image-box">
+                        {% set imageName = 'images/' + current_user.profile_image %}
+                        <img src="{{ url_for('static', filename=imageName) }}" alt="profile picture" id="pro-img">
+                    </div>
+                </div>
+                <div id="others">
+                    <div id="profile_name">Name&#58; {{ current_user.name }}</div>
+                    <div id="profile_email">Email&#58; {{ current_user.email }}</div>
+                    <div id="profile_phoneNum">Phone Number&#58; {{ current_user.number }}</div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            {{ form.name.label() }}
+            {{ form.name(class="form_look") }}
+            <br>
+            {{ form.email.label() }}
+            {{ form.email(class="form_look") }}
+            <br>
+            {{ form.number.label() }}
+            {{ form.number(class="form_look") }}
+            <br>
+            {{ form.profileImg.label(style="font-size: larger;") }}
+            <div id="upload-pic">
+                {{ form.profileImg(style="font-size: 15px; text-align: left; padding-left: 15px; margin-bottom: 10px") }}
+                <hr>
+                <p>Please provide a <strong>square-sized</strong> image of <strong>2mb size</strong></p>
+            <br>
+            </div>
+            {{ form.submit(class="submit-btn") }}
+        </form>
+        <br>
+    </div>
+</section>
+{% endblock content %}

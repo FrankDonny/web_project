@@ -1,27 +1,61 @@
-#content{
-    width: 85%;
-    float: right;
-    margin-top: 80px;
-}
-
-#item{
-    margin-left: 80px;
-    margin-bottom: 20px;
-    width: 60%;
-    height: 100px;
-    border-bottom: solid 2px black;
-    background-color: gray;
-    display: block;
-}
-
 #container{
-    height: 50%;
-    width: 50%;
-    margin: 500px 25% auto 25%;
+    min-height: 1000px;
 }
 
-#container div{
-    width: 100%;
-    height: 100%;
-    background-color: #B9BAA3;
+.form-class {
+    text-align: center;
+    background-color: #001b44;
+    padding: 20px;
+    border-radius: 30px;
+    border: solid lightgray;
+    margin-top: 100px;
+}
+
+.form-class input{
+    margin: auto;
+}
+
+.form_div{
+    margin: auto;
+    width: 30%;
+}
+
+.form_look {
+    display: flex;
+    width: 60%;
+    height: 25px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.form_look-danger{
+    display: flex;
+    width: 60%;
+    height: 25px;
+    border: red solid 1px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.error-div{
+    background-color: rgb(251, 99, 99);
+    color: white;
+    text-align: center;
+    font-size: small;
+    border-radius: 5px;
+    width: 70%;
+    margin: 3px auto auto auto;
+}
+
+.submit-btn {
+    border-radius: 60px;
+    background-color: #e6f9af;
+    text-align: center;
+    cursor: pointer;
+    height: 30px;
+    width: 20%;
+}
+
+.submit-btn:hover {
+    background-color: lightgray;
 }

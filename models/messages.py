@@ -2,7 +2,6 @@
 """messages table module"""
 from models.basemodel import BaseModel, Base
 from sqlalchemy import String, ForeignKey, Column
-from os import getenv
 
 
 class Message(BaseModel, Base):

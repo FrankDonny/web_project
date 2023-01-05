@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block title %}Unknown Page{% endblock title %}
+{% block nav_bar %}
+    <header>
+        <div id="logo-box">
+            <a href="/rooms"><img id="logo" src="{{ url_for('static', filename='images/logo') }}" alt="logo"></a>
+        </div>
+        <div id="nav">
+            <ul class="nav-list">
+                <li><a href="{{ url_for('about') }}"><strong>About</strong></a></li>
+                <li><a href=""><strong>Contact</strong></a></li>
+            </ul>
+        </div>
+    </header>
+{% endblock nav_bar %}
+{% block content %}
+    <section class="unknown">
+        <center><h1>UNKNOWN PAGE</h1></center>
+    </section>
+{% endblock content %}
